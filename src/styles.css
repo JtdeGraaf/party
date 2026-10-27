@@ -82,6 +82,14 @@
   line-height: 0.95;
 }
 
+/* A short line set on the ground, on a small panel so it reads over any tablecloth or quilt. */
+@utility ground-note {
+  border-radius: var(--radius-cell);
+  background-color: color-mix(in oklab, var(--color-frame-panel) 92%, transparent);
+  color: var(--color-frame-text);
+  padding: 0.25rem 0.75rem;
+}
+
 @utility numbers {
   font-variant-numeric: tabular-nums;
 }

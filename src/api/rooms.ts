@@ -36,6 +36,11 @@ export function roomSocketUrl(code: RoomCode): string {
   return `${origin.replace(/^http/, 'ws')}/api/rooms/${code}/socket`
 }
 
+/** The site's own address, as people type it: party.graaf.dev. */
+export function siteName(): string {
+  return window.location.host
+}
+
 /** The link a friend opens by scanning the QR code. */
 export function joinLinkFor(code: string): string {
   return `${window.location.origin}/join/${code}`

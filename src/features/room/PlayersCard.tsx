@@ -21,7 +21,7 @@ export function PlayersCard({ room, players, isLarge = false }: PlayersCardProps
         className={cn(
           'grid gap-1.5 rounded-[var(--radius-cell)] bg-frame-panel p-1.5 shadow-sheet',
           isLarge
-            ? 'grid-cols-[repeat(auto-fill,minmax(11rem,1fr))]'
+            ? 'grid-cols-[repeat(auto-fill,minmax(14rem,1fr))]'
             : 'grid-cols-[repeat(auto-fill,minmax(6.5rem,1fr))]',
         )}
       >
@@ -32,7 +32,7 @@ export function PlayersCard({ room, players, isLarge = false }: PlayersCardProps
         ))}
       </ul>
       {card.watchers.length > 0 && (
-        <p className="w-fit text-sm rounded-[var(--radius-cell)] bg-frame-panel/90 px-3 py-1 text-frame-text">
+        <p className="w-fit text-sm ground-note">
           <span className="font-bold">{t('room.watching')}:</span>{' '}
           {card.watchers.map((watcher) => watcher.name).join(', ')}
         </p>
@@ -43,7 +43,7 @@ export function PlayersCard({ room, players, isLarge = false }: PlayersCardProps
 
 function Cell({ cell, isLarge }: { cell: PlayerCell; isLarge: boolean }) {
   const { t } = useTranslation()
-  const size = isLarge ? 'h-28 text-4xl' : 'h-20 text-2xl'
+  const size = isLarge ? 'h-36 text-5xl' : 'h-20 text-2xl'
   if (cell.kind === 'free') {
     return (
       <span

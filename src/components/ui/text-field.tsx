@@ -5,7 +5,7 @@ import type { ComponentProps } from 'react'
 import { cn } from '@/lib/utils'
 
 const inputVariants = cva(
-  'w-full rounded-[var(--radius-cell)] border-2 border-frame-text/70 bg-frame-cell px-3 text-frame-text placeholder:text-frame-text-soft/80 focus-visible:border-frame-mark focus-visible:outline-none data-[invalid]:border-wrong',
+  'w-full rounded-[var(--radius-cell)] border-2 border-frame-text/70 bg-frame-cell px-3 text-frame-text placeholder:text-frame-text-soft/45 focus-visible:border-frame-mark focus-visible:outline-none data-[invalid]:border-wrong',
   {
     variants: {
       size: {

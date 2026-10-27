@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { CalledBalls } from '@/components/CalledBalls'
+import { siteName } from '@/api/rooms'
 import { JoinQrCode } from '@/components/JoinQrCode'
 import { cn } from '@/lib/utils'
 
@@ -19,17 +20,13 @@ export function RoomCode({ code, size, className }: RoomCodeProps) {
       )}
     >
       <div className={cn('grid gap-2', isHuge ? 'justify-items-start' : 'justify-items-center')}>
+        {isHuge && <p className="ground-note called text-5xl">{t('room.joinAt', { site: siteName() })}</p>}
         <CalledBalls letters={code} label={t('room.codeLabel', { code })} size={size} isRolling />
-        <p
-          className={cn(
-            'font-semibold rounded-[var(--radius-cell)] bg-frame-panel/90 px-3 py-1 text-frame-text',
-            isHuge ? 'text-2xl' : 'text-center text-sm',
-          )}
-        >
+        <p className={cn('font-semibold ground-note', isHuge ? 'text-2xl' : 'text-center text-sm')}>
           {t('room.readOut')}
         </p>
       </div>
-      <JoinQrCode code={code} className={isHuge ? 'w-[min(26vh,15rem)]' : 'w-32'} />
+      <JoinQrCode code={code} className={isHuge ? 'w-[min(34vh,20rem)]' : 'w-32'} />
     </section>
   )
 }

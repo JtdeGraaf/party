@@ -19,7 +19,7 @@ const ballVariants = cva('grid aspect-square place-items-center rounded-full sha
       bar: 'w-7 p-[3px] text-lg',
       small: 'w-11 p-1 text-3xl',
       big: 'w-[4.5rem] p-1.5 text-5xl sm:w-24 sm:text-7xl',
-      huge: 'w-[min(17vh,11rem)] p-[0.6rem] text-[min(13vh,8.5rem)]',
+      huge: 'w-[min(22vh,10vw,14rem)] p-[0.7rem] text-[min(17vh,7.6vw,11rem)]',
     },
   },
   defaultVariants: { size: 'big' },

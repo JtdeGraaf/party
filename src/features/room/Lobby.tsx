@@ -21,13 +21,15 @@ export function Lobby({ room, screens, isTableScreen, onStart, onChangeSettings,
   const { missing } = playersCard(room, screens.players)
   const Settings = screens.Settings
   return (
-    <div className={isTableScreen ? 'grid gap-8 lg:grid-cols-[auto_1fr] lg:items-start' : 'grid gap-6'}>
+    <div
+      className={
+        isTableScreen ? 'grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-start' : 'grid gap-6'
+      }
+    >
       <RoomCode code={room.code} size={isTableScreen ? 'huge' : 'big'} />
       <div className="grid gap-5">
         <PlayersCard room={room} players={screens.players} isLarge={isTableScreen} />
-        <p className="w-fit text-sm rounded-[var(--radius-cell)] bg-frame-panel/90 px-3 py-1 text-frame-text">
-          {t('room.seatsFor', { max: screens.players.max })}
-        </p>
+        <p className="w-fit text-sm ground-note">{t('room.seatsFor', { max: screens.players.max })}</p>
         {Settings && (
           <div className="rounded-[var(--radius-cell)] bg-frame-panel p-4 text-frame-text">
             <Settings settings={room.settings} onChange={onChangeSettings} />
@@ -38,10 +40,7 @@ export function Lobby({ room, screens, isTableScreen, onStart, onChangeSettings,
             {t('room.start')}
           </Button>
           {missing > 0 && (
-            <p
-              aria-live="polite"
-              className="mx-auto w-fit text-center font-semibold rounded-[var(--radius-cell)] bg-frame-panel/90 px-3 py-1 text-frame-text"
-            >
+            <p aria-live="polite" className="mx-auto w-fit text-center font-semibold ground-note">
               {t('room.needMore', { count: missing })}
             </p>
           )}

@@ -16,7 +16,7 @@ function HomePage() {
           <GameShelf />
           <p className="max-w-prose text-print-soft">{t('shelf.pitch')}</p>
         </div>
-        <aside className="lg:pt-24">
+        <aside className="order-first lg:order-none lg:pt-24">
           <JoinByCode />
         </aside>
       </main>
