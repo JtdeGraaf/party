@@ -50,8 +50,11 @@ function ShelfSheet({ screens }: { screens: GameScreens }) {
           {t('shelf.players', screens.players)}
         </span>
       </span>
-      {pick.isDabbed && <Dab className="absolute -top-6 -right-6 size-40 fill-dab" />}
-      <Emblem className="w-16 self-center transition duration-300 ease-out group-hover:rotate-3" />
+      <span className="relative self-center">
+        <Emblem className="w-16 transition duration-300 ease-out group-hover:rotate-3" />
+        {/* Plain ink, not multiplied: the sheets are dark or saturated, and the hub's magenta must stay magenta. */}
+        {pick.isDabbed && <Dab className="absolute -inset-3 fill-dab opacity-85 mix-blend-normal" />}
+      </span>
     </Link>
   )
 }
