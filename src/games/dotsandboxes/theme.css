@@ -34,6 +34,8 @@
   --color-frame-text-soft: var(--color-label-ink-soft);
   --color-frame-cell: var(--color-label-bright);
   --color-frame-mark: var(--color-thread-1);
+  --color-frame-plate: var(--color-label-cloth);
+  --color-frame-plate-ink: var(--color-label-ink);
   /* A fine plain weave, so the ground reads as cloth rather than a flat colour. */
   background-image:
     repeating-linear-gradient(0deg, rgb(255 255 255 / 0.035) 0 1px, transparent 1px 3px),

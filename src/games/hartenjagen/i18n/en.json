@@ -36,7 +36,9 @@
     "lookUp": "Your cards. The table is on the big screen.",
     "stockTaken": "{{name}} took the stok",
     "stockTurned": "The stok was",
-    "scoreHeading": "The notepad"
+    "scoreHeading": "The notepad",
+    "youTookTrick": "You take the trick",
+    "youTookStock": "You took the stok"
   },
   "score": {
     "title": "Score",

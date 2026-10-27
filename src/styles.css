@@ -37,6 +37,9 @@
   --color-frame-text-soft: var(--color-print-soft);
   --color-frame-cell: var(--color-ball);
   --color-frame-mark: var(--color-dab);
+  /* The one solid plate per screen, for the thing to do now. */
+  --color-frame-plate: var(--color-print);
+  --color-frame-plate-ink: var(--color-sheet);
 
   --font-display: 'League Gothic', 'Hanken Grotesk Variable', sans-serif;
   --font-sans: 'Hanken Grotesk Variable', system-ui, sans-serif;

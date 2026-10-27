@@ -32,7 +32,7 @@ export function PlayersCard({ room, players, isLarge = false }: PlayersCardProps
         ))}
       </ul>
       {card.watchers.length > 0 && (
-        <p className="text-sm text-frame-on-ground">
+        <p className="w-fit text-sm rounded-[var(--radius-cell)] bg-frame-panel/90 px-3 py-1 text-frame-text">
           <span className="font-bold">{t('room.watching')}:</span>{' '}
           {card.watchers.map((watcher) => watcher.name).join(', ')}
         </p>

@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GameRouteImport } from './routes/$game'
-import { Route as JoinRouteImport } from './routes/join'
+import { Route as JoinIndexRouteImport } from './routes/join.index'
 import { Route as JoinCodeRouteImport } from './routes/join.$code'
 import { Route as RoomCodeRouteImport } from './routes/room.$code'
 import { Route as TableCodeRouteImport } from './routes/table.$code'
@@ -26,15 +26,15 @@ const GameRoute = GameRouteImport.update({
   path: '/$game',
   getParentRoute: () => rootRouteImport,
 } as any)
-const JoinRoute = JoinRouteImport.update({
-  id: '/join',
-  path: '/join',
+const JoinIndexRoute = JoinIndexRouteImport.update({
+  id: '/join/',
+  path: '/join/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JoinCodeRoute = JoinCodeRouteImport.update({
-  id: '/$code',
-  path: '/$code',
-  getParentRoute: () => JoinRoute,
+  id: '/join/$code',
+  path: '/join/$code',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const RoomCodeRoute = RoomCodeRouteImport.update({
   id: '/room/$code',
@@ -50,50 +50,51 @@ const TableCodeRoute = TableCodeRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$game': typeof GameRoute
-  '/join': typeof JoinRouteWithChildren
   '/join/$code': typeof JoinCodeRoute
   '/room/$code': typeof RoomCodeRoute
   '/table/$code': typeof TableCodeRoute
+  '/join/': typeof JoinIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$game': typeof GameRoute
-  '/join': typeof JoinRouteWithChildren
   '/join/$code': typeof JoinCodeRoute
   '/room/$code': typeof RoomCodeRoute
   '/table/$code': typeof TableCodeRoute
+  '/join': typeof JoinIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$game': typeof GameRoute
-  '/join': typeof JoinRouteWithChildren
   '/join/$code': typeof JoinCodeRoute
   '/room/$code': typeof RoomCodeRoute
   '/table/$code': typeof TableCodeRoute
+  '/join/': typeof JoinIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/$game' | '/join' | '/join/$code' | '/room/$code' | '/table/$code'
+    '/' | '/$game' | '/join/$code' | '/room/$code' | '/table/$code' | '/join/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$game' | '/join' | '/join/$code' | '/room/$code' | '/table/$code'
+  to: '/' | '/$game' | '/join/$code' | '/room/$code' | '/table/$code' | '/join'
   id:
     | '__root__'
     | '/'
     | '/$game'
-    | '/join'
     | '/join/$code'
     | '/room/$code'
     | '/table/$code'
+    | '/join/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   GameRoute: typeof GameRoute
-  JoinRoute: typeof JoinRouteWithChildren
+  JoinCodeRoute: typeof JoinCodeRoute
   RoomCodeRoute: typeof RoomCodeRoute
   TableCodeRoute: typeof TableCodeRoute
+  JoinIndexRoute: typeof JoinIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -112,19 +113,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GameRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/join': {
-      id: '/join'
+    '/join/': {
+      id: '/join/'
       path: '/join'
-      fullPath: '/join'
-      preLoaderRoute: typeof JoinRouteImport
+      fullPath: '/join/'
+      preLoaderRoute: typeof JoinIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/join/$code': {
       id: '/join/$code'
-      path: '/$code'
+      path: '/join/$code'
       fullPath: '/join/$code'
       preLoaderRoute: typeof JoinCodeRouteImport
-      parentRoute: typeof JoinRoute
+      parentRoute: typeof rootRouteImport
     }
     '/room/$code': {
       id: '/room/$code'
@@ -143,22 +144,13 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface JoinRouteChildren {
-  JoinCodeRoute: typeof JoinCodeRoute
-}
-
-const JoinRouteChildren: JoinRouteChildren = {
-  JoinCodeRoute: JoinCodeRoute,
-}
-
-const JoinRouteWithChildren = JoinRoute._addFileChildren(JoinRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   GameRoute: GameRoute,
-  JoinRoute: JoinRouteWithChildren,
+  JoinCodeRoute: JoinCodeRoute,
   RoomCodeRoute: RoomCodeRoute,
   TableCodeRoute: TableCodeRoute,
+  JoinIndexRoute: JoinIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

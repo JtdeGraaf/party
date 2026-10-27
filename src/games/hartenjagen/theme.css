@@ -98,6 +98,8 @@
   --color-frame-text-soft: var(--color-pencil);
   --color-frame-cell: var(--color-saucer);
   --color-frame-mark: var(--color-card-red);
+  --color-frame-plate: var(--color-band);
+  --color-frame-plate-ink: var(--color-band-ink);
 }
 
 @utility text-lettered {

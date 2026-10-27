@@ -41,39 +41,38 @@ export function TrickArea({ hearts, isLarge = false }: TrickAreaProps) {
       <div className="flex min-h-8 flex-wrap items-center justify-center gap-2">
         {takenBy !== null && (
           <p className={cn('rounded-full bg-band px-3 py-1 font-bold text-band-ink', isLarge ? 'text-2xl' : 'text-sm')}>
-            {t('table.tookTrick', { name: nameOf(takenBy) })}
+            {takenBy === mySeat ? t('table.youTookTrick') : t('table.tookTrick', { name: nameOf(takenBy) })}
           </p>
         )}
-        <Stock view={view} nameOf={nameOf} isLarge={isLarge} />
+        <Stock view={view} mySeat={mySeat} nameOf={nameOf} isLarge={isLarge} />
       </div>
     </section>
   )
 }
 
-function Stock({
-  view,
-  nameOf,
-  isLarge,
-}: {
-  view: HartenjagenView
-  nameOf: (seat: number) => string
-  isLarge: boolean
-}) {
+type StockProps = { view: HartenjagenView; mySeat: number | null; nameOf: (seat: number) => string; isLarge: boolean }
+
+/** The stok, face down, and who took it with the first trick. */
+function Stock({ view, mySeat, nameOf, isLarge }: StockProps) {
   const { t } = useTranslation('hartenjagen')
-  if (view.stock.count === 0) return null
-  const label =
-    view.stock.takenBy === null ? t('table.stock') : t('table.stockTaken', { name: nameOf(view.stock.takenBy) })
+  const { count, takenBy } = view.stock
+  if (count === 0) return null
+  function label() {
+    if (takenBy === null) return t('table.stock')
+    if (takenBy === mySeat) return t('table.youTookStock')
+    return t('table.stockTaken', { name: nameOf(takenBy) })
+  }
   return (
     <span className="flex items-center gap-2">
       <span className="flex pl-2">
-        {Array.from({ length: view.stock.count }, (_, index) => (
+        {Array.from({ length: count }, (_, index) => (
           <CardBack key={index} className={cn('-ml-2', isLarge ? 'w-14' : 'w-9')} />
         ))}
       </span>
       <span
         className={cn('rounded-full bg-band/85 px-2 py-0.5 font-bold text-band-ink', isLarge ? 'text-lg' : 'text-xs')}
       >
-        {label}
+        {label()}
       </span>
     </span>
   )

@@ -25,7 +25,9 @@ export function Lobby({ room, screens, isTableScreen, onStart, onChangeSettings,
       <RoomCode code={room.code} size={isTableScreen ? 'huge' : 'big'} />
       <div className="grid gap-5">
         <PlayersCard room={room} players={screens.players} isLarge={isTableScreen} />
-        <p className="text-sm text-frame-on-ground">{t('room.seatsFor', { max: screens.players.max })}</p>
+        <p className="w-fit text-sm rounded-[var(--radius-cell)] bg-frame-panel/90 px-3 py-1 text-frame-text">
+          {t('room.seatsFor', { max: screens.players.max })}
+        </p>
         {Settings && (
           <div className="rounded-[var(--radius-cell)] bg-frame-panel p-4 text-frame-text">
             <Settings settings={room.settings} onChange={onChangeSettings} />
@@ -36,7 +38,10 @@ export function Lobby({ room, screens, isTableScreen, onStart, onChangeSettings,
             {t('room.start')}
           </Button>
           {missing > 0 && (
-            <p aria-live="polite" className="text-center font-semibold text-frame-on-ground">
+            <p
+              aria-live="polite"
+              className="mx-auto w-fit text-center font-semibold rounded-[var(--radius-cell)] bg-frame-panel/90 px-3 py-1 text-frame-text"
+            >
               {t('room.needMore', { count: missing })}
             </p>
           )}

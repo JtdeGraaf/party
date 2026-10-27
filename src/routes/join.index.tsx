@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { HubBar } from '@/components/HubBar'
 import { JoinByCode } from '@/features/hub/JoinByCode'
 
-export const Route = createFileRoute('/join')({ component: JoinPage })
+export const Route = createFileRoute('/join/')({ component: JoinPage })
 
 function JoinPage() {
   return (

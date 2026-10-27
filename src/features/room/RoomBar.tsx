@@ -25,8 +25,8 @@ export function RoomBar({ code, gameName, isConnected, onInvite, children }: Roo
       >
         <CalledBalls letters={code} label={t('room.codeLabel', { code })} size="bar" />
       </button>
-      <span className="called truncate text-2xl">{gameName}</span>
-      <span role="status" className="mr-auto flex items-center gap-1.5 text-xs font-bold">
+      <span className="called min-w-0 truncate text-2xl">{gameName}</span>
+      <span role="status" className="mr-auto flex flex-none items-center gap-1.5 text-xs font-bold">
         <span
           aria-hidden="true"
           className={cn('size-2.5 rounded-full', isConnected ? 'bg-frame-mark' : 'animate-pulse bg-frame-ink-soft')}

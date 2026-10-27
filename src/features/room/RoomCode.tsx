@@ -20,7 +20,12 @@ export function RoomCode({ code, size, className }: RoomCodeProps) {
     >
       <div className={cn('grid gap-2', isHuge ? 'justify-items-start' : 'justify-items-center')}>
         <CalledBalls letters={code} label={t('room.codeLabel', { code })} size={size} isRolling />
-        <p className={cn('font-semibold text-frame-on-ground', isHuge ? 'text-2xl' : 'text-center text-sm')}>
+        <p
+          className={cn(
+            'font-semibold rounded-[var(--radius-cell)] bg-frame-panel/90 px-3 py-1 text-frame-text',
+            isHuge ? 'text-2xl' : 'text-center text-sm',
+          )}
+        >
           {t('room.readOut')}
         </p>
       </div>

@@ -36,7 +36,9 @@
     "lookUp": "Je kaarten. De tafel staat op het grote scherm.",
     "stockTaken": "{{name}} kreeg de stok",
     "stockTurned": "In de stok zat",
-    "scoreHeading": "Het notitieblok"
+    "scoreHeading": "Het notitieblok",
+    "youTookTrick": "Jij pakt de slag",
+    "youTookStock": "Jij kreeg de stok"
   },
   "score": {
     "title": "Stand",
