@@ -25,7 +25,7 @@ export function RoomBar({ code, gameName, isConnected, onInvite, children }: Roo
       >
         <CalledBalls letters={code} label={t('room.codeLabel', { code })} size="bar" />
       </button>
-      <span className="called min-w-0 truncate text-2xl">{gameName}</span>
+      <span className="called hidden min-w-0 truncate text-2xl sm:inline">{gameName}</span>
       <span role="status" className="mr-auto flex flex-none items-center gap-1.5 text-xs font-bold">
         <span
           aria-hidden="true"

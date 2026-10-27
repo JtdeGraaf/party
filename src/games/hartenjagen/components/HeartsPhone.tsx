@@ -25,7 +25,7 @@ export function HeartsPhone(props: GameScreenProps) {
   return (
     <div className="grid gap-3 font-kitchen text-card-ink">
       {props.hasTableScreen ? (
-        <p className="text-center font-semibold text-band">{t('table.lookUp')}</p>
+        <p className="rounded-full bg-paper px-4 py-1 text-center font-semibold text-band">{t('table.lookUp')}</p>
       ) : (
         <TableFromMySeat hearts={hearts} />
       )}
@@ -114,7 +114,7 @@ function BetweenHands({ hearts }: { hearts: HeartsOnScreen }) {
           {t('table.deal', { number: view.handNumber })}
         </Button>
       ) : (
-        <p className="text-center font-semibold text-band">
+        <p className="rounded-full bg-paper px-4 py-1 text-center font-semibold text-band">
           {t('table.waitingForDeal', { name: nameOf(view.dealer) })}
         </p>
       )}
@@ -125,7 +125,7 @@ function BetweenHands({ hearts }: { hearts: HeartsOnScreen }) {
 function StockTurned({ cards }: { cards: string[] }) {
   const { t } = useTranslation('hartenjagen')
   return (
-    <p className="flex items-center gap-2 text-sm font-bold text-band">
+    <p className="flex items-center gap-2 rounded-full bg-band/90 py-1 pr-1 pl-3 text-sm font-bold text-band-ink">
       {t('table.stockTurned')}
       <StockCards cards={cards} />
     </p>

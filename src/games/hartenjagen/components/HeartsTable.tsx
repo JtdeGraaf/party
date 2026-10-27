@@ -67,14 +67,16 @@ function Middle({ hearts }: { hearts: HeartsOnScreen }) {
         </p>
       )}
       {view.stock.cards && (
-        <p className="flex items-center gap-3 text-xl font-bold text-band">
+        <p className="flex items-center gap-3 rounded-full bg-band/90 py-2 pr-2 pl-5 text-xl font-bold text-band-ink">
           {t('table.stockTurned')}
           {view.stock.cards.map((card) => (
             <PlayingCard key={card} id={card} className="w-20 text-base" />
           ))}
         </p>
       )}
-      <p className="text-lettered text-4xl text-band">{t('table.waitingForDeal', { name: nameOf(view.dealer) })}</p>
+      <p className="text-lettered rounded-full bg-paper px-6 py-2 text-4xl text-band shadow-card">
+        {t('table.waitingForDeal', { name: nameOf(view.dealer) })}
+      </p>
     </section>
   )
 }
