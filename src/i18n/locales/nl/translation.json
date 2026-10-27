@@ -16,7 +16,6 @@
   },
   "join": {
     "heading": "Heb je een kamercode?",
-    "codeLabel": "Kamercode",
     "codePlaceholder": "KWPF",
     "codeInvalid": "Een kamercode is 4 letters, zoals KWPF.",
     "submit": "Meedoen",
@@ -36,8 +35,7 @@
     "openOnTable": "Gebruik dit scherm als tafel",
     "opening": "Kamer openen…",
     "offline": "De kamerserver is niet bereikbaar. Check de verbinding en probeer het opnieuw.",
-    "refused": "De kamerserver nam dat niet aan. Probeer het opnieuw.",
-    "settings": "Voor je begint"
+    "refused": "De kamerserver nam dat niet aan. Probeer het opnieuw."
   },
   "room": {
     "codeLabel": "Kamercode {{code}}",

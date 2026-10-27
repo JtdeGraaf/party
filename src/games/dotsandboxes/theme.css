@@ -34,7 +34,7 @@
   --color-frame-text-soft: var(--color-label-ink-soft);
   --color-frame-cell: var(--color-label-bright);
   --color-frame-mark: var(--color-thread-1);
-  --color-frame-plate: var(--color-label-cloth);
+  --color-frame-plate: var(--color-fabric-1);
   --color-frame-plate-ink: var(--color-label-ink);
   /* A fine plain weave, so the ground reads as cloth rather than a flat colour. */
   background-image:

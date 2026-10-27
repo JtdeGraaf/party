@@ -21,12 +21,11 @@ export function JoinByCode() {
         const roomCode = readRoomCode(code)
         if (roomCode) void navigate({ to: '/join/$code', params: { code: roomCode } })
       })}
-      className="grid gap-3"
+      className="grid"
     >
-      <h2 className="called text-4xl">{t('join.heading')}</h2>
       <div className="grid grid-cols-[1fr_auto] items-end gap-2">
         <TextField
-          label={t('join.codeLabel')}
+          label={t('join.heading')}
           size="code"
           placeholder={t('join.codePlaceholder')}
           autoComplete="off"

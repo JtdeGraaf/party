@@ -21,11 +21,7 @@ export function Lobby({ room, screens, isTableScreen, onStart, onChangeSettings,
   const { missing } = playersCard(room, screens.players)
   const Settings = screens.Settings
   return (
-    <div
-      className={
-        isTableScreen ? 'grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-start' : 'grid gap-6'
-      }
-    >
+    <div className={isTableScreen ? 'grid gap-8' : 'grid gap-6'}>
       <RoomCode code={room.code} size={isTableScreen ? 'huge' : 'big'} />
       <div className="grid gap-5">
         <PlayersCard room={room} players={screens.players} isLarge={isTableScreen} />

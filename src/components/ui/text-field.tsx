@@ -18,6 +18,16 @@ const inputVariants = cva(
   },
 )
 
+const labelVariants = cva('text-frame-text', {
+  variants: {
+    size: {
+      normal: 'text-sm font-bold',
+      code: 'called text-4xl',
+    },
+  },
+  defaultVariants: { size: 'normal' },
+})
+
 type TextFieldProps = Omit<ComponentProps<typeof Input>, 'className' | 'size'> &
   VariantProps<typeof inputVariants> & {
     label: string
@@ -29,7 +39,7 @@ type TextFieldProps = Omit<ComponentProps<typeof Input>, 'className' | 'size'> &
 export function TextField({ label, error, size, className, ...props }: TextFieldProps) {
   return (
     <Field.Root invalid={error !== undefined} className={cn('grid gap-1.5', className)}>
-      <Field.Label className="text-sm font-bold text-frame-text">{label}</Field.Label>
+      <Field.Label className={labelVariants({ size })}>{label}</Field.Label>
       <Input className={inputVariants({ size })} {...props} />
       {error && (
         <Field.Error match className="text-sm font-semibold text-wrong">

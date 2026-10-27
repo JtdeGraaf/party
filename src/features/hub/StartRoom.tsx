@@ -22,7 +22,6 @@ export function StartRoom({ screens }: { screens: GameScreens }) {
     <div className="grid gap-6">
       {Settings && (
         <section className="grid gap-3 rounded-[var(--radius-cell)] bg-frame-panel p-4 text-frame-text shadow-sheet">
-          <h2 className="called text-3xl">{t('start.settings')}</h2>
           <Settings settings={start.settings} onChange={start.setSettings} />
         </section>
       )}

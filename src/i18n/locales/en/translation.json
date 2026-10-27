@@ -16,7 +16,6 @@
   },
   "join": {
     "heading": "Got a room code?",
-    "codeLabel": "Room code",
     "codePlaceholder": "KWPF",
     "codeInvalid": "A room code is 4 letters, like KWPF.",
     "submit": "Join",
@@ -36,8 +35,7 @@
     "openOnTable": "Use this screen as the table",
     "opening": "Opening a room…",
     "offline": "Couldn't reach the room server. Check the connection and try again.",
-    "refused": "The room server didn't take that. Try again.",
-    "settings": "Before you start"
+    "refused": "The room server didn't take that. Try again."
   },
   "room": {
     "codeLabel": "Room code {{code}}",

@@ -19,14 +19,16 @@ export function PlayersCard({ room, players, isLarge = false }: PlayersCardProps
     <section aria-label={t('room.players')} className="grid gap-3">
       <ul
         className={cn(
-          'grid gap-1.5 rounded-[var(--radius-cell)] bg-frame-panel p-1.5 shadow-sheet',
-          isLarge
-            ? 'grid-cols-[repeat(auto-fill,minmax(14rem,1fr))]'
-            : 'grid-cols-[repeat(auto-fill,minmax(6.5rem,1fr))]',
+          'flex gap-1.5 rounded-[var(--radius-cell)] bg-frame-panel p-1.5 shadow-sheet',
+          // One row of seats on a big screen; two to a row on a phone, the last row's cells widening to fill it.
+          isLarge ? 'flex-nowrap' : 'flex-wrap',
         )}
       >
         {card.cells.map((cell) => (
-          <li key={cell.kind === 'player' ? cell.player.id : `free-${cell.index}`}>
+          <li
+            key={cell.kind === 'player' ? cell.player.id : `free-${cell.index}`}
+            className={isLarge ? 'min-w-0 flex-1 basis-0' : 'min-w-0 flex-1 basis-[40%]'}
+          >
             <Cell cell={cell} isLarge={isLarge} />
           </li>
         ))}
@@ -48,7 +50,7 @@ function Cell({ cell, isLarge }: { cell: PlayerCell; isLarge: boolean }) {
     return (
       <span
         className={cn(
-          'called grid place-items-center rounded-[calc(var(--radius-cell)-2px)] bg-frame-cell text-frame-text-soft/60',
+          'called grid place-items-center rounded-[calc(var(--radius-cell)-2px)] bg-frame-cell text-frame-text-soft',
           size,
         )}
       >

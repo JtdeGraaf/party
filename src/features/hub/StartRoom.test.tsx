@@ -68,7 +68,7 @@ describe('joining by code', () => {
   it('refuses something that is not a room code', async () => {
     const { router } = await renderInRouter(<JoinByCode />)
 
-    await userEvent.type(screen.getByRole('textbox', { name: 'Room code' }), 'KOPF')
+    await userEvent.type(screen.getByRole('textbox', { name: 'Got a room code?' }), 'KOPF')
     await userEvent.click(screen.getByRole('button', { name: 'Join' }))
 
     expect(await screen.findByText('A room code is 4 letters, like KWPF.')).toBeInTheDocument()
@@ -78,7 +78,7 @@ describe('joining by code', () => {
   it('goes on to the name for a code typed in lower case with spaces', async () => {
     const { router } = await renderInRouter(<JoinByCode />)
 
-    await userEvent.type(screen.getByRole('textbox', { name: 'Room code' }), 'kw pf')
+    await userEvent.type(screen.getByRole('textbox', { name: 'Got a room code?' }), 'kw pf')
     await userEvent.click(screen.getByRole('button', { name: 'Join' }))
 
     await waitFor(() => expect(router.state.location.pathname).toBe('/join/KWPF'))

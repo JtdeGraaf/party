@@ -14,8 +14,8 @@ export function RoomCode({ code, size, className }: RoomCodeProps) {
     <section
       aria-label={t('room.codeLabel', { code })}
       className={cn(
-        'flex flex-wrap items-center gap-x-6 gap-y-4',
-        isHuge ? 'justify-start' : 'justify-center',
+        'flex items-center gap-x-6 gap-y-4',
+        isHuge ? 'flex-nowrap justify-between gap-x-10' : 'flex-wrap justify-center',
         className,
       )}
     >
@@ -26,7 +26,7 @@ export function RoomCode({ code, size, className }: RoomCodeProps) {
           {t('room.readOut')}
         </p>
       </div>
-      <JoinQrCode code={code} className={isHuge ? 'w-[min(34vh,20rem)]' : 'w-32'} />
+      <JoinQrCode code={code} className={isHuge ? 'w-[min(32vh,18rem)] flex-none' : 'w-32'} />
     </section>
   )
 }

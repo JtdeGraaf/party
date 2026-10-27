@@ -7,9 +7,9 @@
  * coloured band, and a magenta dauber for "you", "in" and "chosen".
  */
 @theme {
-  --color-sheet: #d6ee84;
-  --color-sheet-deep: #c2df62;
-  --color-cell: #f1f9d2;
+  --color-sheet: #d2f54a;
+  --color-sheet-deep: #b6dc22;
+  --color-cell: #f2fcc6;
   --color-print: #2e1a5e;
   --color-print-soft: #4f3f86;
   --color-dab: #e5007d;
