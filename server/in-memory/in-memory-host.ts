@@ -53,7 +53,12 @@ export class InMemoryHost implements RoomDirectory {
   private roomFor(code: string): InMemoryRoom {
     const existing = this.rooms.get(code)
     if (existing) return existing
-    const room: InMemoryRoom = { saved: null, alarmAt: null, connections: new Set(), server: null as unknown as RoomServer }
+    const room: InMemoryRoom = {
+      saved: null,
+      alarmAt: null,
+      connections: new Set(),
+      server: null as unknown as RoomServer,
+    }
     room.server = this.newServer(room)
     this.rooms.set(code, room)
     return room

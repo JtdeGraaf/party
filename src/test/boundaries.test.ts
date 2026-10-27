@@ -27,7 +27,9 @@ function gameOf(file: string): string | null {
 function target(file: string, imported: string): string {
   if (imported.startsWith('@/')) return `src/${imported.slice(2)}`
   if (!imported.startsWith('.')) return imported
-  return relative(ROOT, join(ROOT, file, '..', imported)).split(sep).join('/')
+  return relative(ROOT, join(ROOT, file, '..', imported))
+    .split(sep)
+    .join('/')
 }
 
 const allFiles = [...sourceFiles('src'), ...sourceFiles('server'), ...sourceFiles('worker')]
@@ -65,7 +67,10 @@ describe('boundaries', () => {
 
   it('keep React and the browser out of the server and the game rules', () => {
     const serverSide = allFiles.filter(
-      (file) => file.startsWith('server/') || /^src\/games\/[^/]+\/rules\//.test(file) || file === 'src/games/rules-registry.ts',
+      (file) =>
+        file.startsWith('server/') ||
+        /^src\/games\/[^/]+\/rules\//.test(file) ||
+        file === 'src/games/rules-registry.ts',
     )
     const offenders = serverSide
       .flatMap((file) => importsOf(file).map((imported) => [file, imported]))

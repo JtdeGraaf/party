@@ -15,7 +15,8 @@ function pickMove(state: HartenjagenState, random: Random): { seat: number; move
 
 describeGameRules(hartenjagenRules, { settings: {}, pickMove })
 
-const start = (seats: number) => hartenjagenRules.start({ seats, settings: {}, gameNumber: 1, random: seededRandom(3), now: 0 }).state
+const start = (seats: number) =>
+  hartenjagenRules.start({ seats, settings: {}, gameNumber: 1, random: seededRandom(3), now: 0 }).state
 
 function play(state: HartenjagenState, seat: number, move: HartenjagenMove): HartenjagenState {
   const result = hartenjagenRules.move(state, { seat, move, random: seededRandom(4), now: 0 })
@@ -90,8 +91,18 @@ describe('moves', () => {
     const someoneElse = (leader + 1) % 4
     const othersCard = state.hands[0].deal.hands[someoneElse][0]
 
-    const outOfTurn = hartenjagenRules.move(state, { seat: someoneElse, move: { type: 'play', card: othersCard }, random: seededRandom(1), now: 0 })
-    const notHeld = hartenjagenRules.move(state, { seat: leader, move: { type: 'play', card: othersCard }, random: seededRandom(1), now: 0 })
+    const outOfTurn = hartenjagenRules.move(state, {
+      seat: someoneElse,
+      move: { type: 'play', card: othersCard },
+      random: seededRandom(1),
+      now: 0,
+    })
+    const notHeld = hartenjagenRules.move(state, {
+      seat: leader,
+      move: { type: 'play', card: othersCard },
+      random: seededRandom(1),
+      now: 0,
+    })
 
     expect(outOfTurn).toEqual({ problem: 'notYourTurn' })
     expect(notHeld).toEqual({ problem: 'cannotPlayThat' })
@@ -101,7 +112,9 @@ describe('moves', () => {
     const state = start(4)
     const random = seededRandom(1)
 
-    expect(hartenjagenRules.move(state, { seat: 1, move: { type: 'deal' }, random, now: 0 })).toEqual({ problem: 'handInPlay' })
+    expect(hartenjagenRules.move(state, { seat: 1, move: { type: 'deal' }, random, now: 0 })).toEqual({
+      problem: 'handInPlay',
+    })
 
     const done = playOutHand(state)
     const table = hartenjagenRules.view(done, { as: 'table' })

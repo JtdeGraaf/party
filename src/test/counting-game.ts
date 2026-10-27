@@ -32,7 +32,12 @@ export const countingGame: GameRules<CountingState, { add: number }, { target: n
   viewSchema,
   start({ seats, settings, random }) {
     return {
-      state: { count: 0, target: settings.target, turn: 0, secrets: Array.from({ length: seats }, () => random.below(1000)) },
+      state: {
+        count: 0,
+        target: settings.target,
+        turn: 0,
+        secrets: Array.from({ length: seats }, () => random.below(1000)),
+      },
     }
   },
   move(state, { seat, move }) {

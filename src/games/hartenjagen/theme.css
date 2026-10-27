@@ -1,0 +1,133 @@
+/* Hartenjagen at a 1970s kitchen table: glossy oilcloth, real playing cards, a pencilled notepad, coffee saucers. */
+@theme {
+  --color-oilcloth: #d9662b;
+  --color-oilcloth-deep: #b9501c;
+  --color-petal-brown: #5a3420;
+  --color-petal-gold: #f2c14e;
+  --color-petal-ember: #b8451a;
+  --color-petal-cream: #f3dcb8;
+  --color-leaf: #7f8f2e;
+
+  --color-band: #3b2418;
+  --color-band-ink: #fbefd9;
+  --color-band-ink-soft: #e2c9a6;
+
+  --color-card: #fffdf8;
+  --color-card-edge: #b9ab97;
+  --color-card-ink: #1e1a17;
+  --color-card-red: #c3272b;
+
+  --color-paper: #fbf6e9;
+  --color-paper-rule: #a9c4d9;
+  --color-paper-margin: #e07a6e;
+  --color-pencil: #45444c;
+  --color-pencil-soft: #6e6c74;
+
+  --color-saucer: #f7f1e6;
+  --color-saucer-rim: #e4d8c4;
+  --color-turn: #f2c14e;
+
+  --font-lettered: 'Shrikhand', 'Albert Sans Variable', serif;
+  --font-kitchen: 'Albert Sans Variable', system-ui, sans-serif;
+  --font-pencil: 'Gochi Hand', 'Albert Sans Variable', cursive;
+
+  --radius-card: 0.45rem;
+  --shadow-card: 0 2px 3px rgb(58 30 12 / 0.28), 0 6px 14px rgb(58 30 12 / 0.18);
+  --shadow-lifted: 0 6px 10px rgb(58 30 12 / 0.3), 0 14px 26px rgb(58 30 12 / 0.22);
+  --shadow-paper: 0 3px 6px rgb(58 30 12 / 0.3), 0 12px 30px rgb(58 30 12 / 0.2);
+
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-land-from-top: land-from-top 380ms var(--ease-out-soft) both;
+  --animate-land-from-bottom: land-from-bottom 380ms var(--ease-out-soft) both;
+  --animate-gather-me: gather-me 1300ms ease-in both;
+  --animate-gather-up: gather-up 1300ms ease-in both;
+
+  /* A card thrown onto the table from the player's side: the others sit across, you sit below. */
+  @keyframes land-from-top {
+    from {
+      opacity: 0;
+      translate: 0 -3rem;
+      scale: 0.85;
+    }
+  }
+  @keyframes land-from-bottom {
+    from {
+      opacity: 0;
+      translate: 0 4rem;
+      scale: 1.15;
+    }
+  }
+
+  /* A full trick lies still for a moment, then the winner sweeps it off the table towards their place. */
+  @keyframes gather-me {
+    0%,
+    55% {
+      translate: 0 0;
+      scale: 1;
+      opacity: 1;
+    }
+    to {
+      translate: 0 12rem;
+      scale: 0.35;
+      opacity: 0;
+    }
+  }
+  @keyframes gather-up {
+    0%,
+    55% {
+      translate: 0 0;
+      scale: 1;
+      opacity: 1;
+    }
+    to {
+      translate: 0 -10rem;
+      scale: 0.3;
+      opacity: 0;
+    }
+  }
+}
+
+.world-hartenjagen {
+  --color-frame: var(--color-band);
+  --color-frame-ink: var(--color-band-ink);
+  --color-frame-ink-soft: var(--color-band-ink-soft);
+  --color-frame-ground: var(--color-oilcloth);
+  --color-frame-on-ground: var(--color-band);
+  --color-frame-panel: var(--color-paper);
+  --color-frame-text: var(--color-band);
+  --color-frame-text-soft: var(--color-pencil);
+  --color-frame-cell: var(--color-saucer);
+  --color-frame-mark: var(--color-card-red);
+}
+
+@utility text-lettered {
+  font-family: var(--font-lettered);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+
+@utility pencilled {
+  font-family: var(--font-pencil);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-pencil);
+}
+
+/* A lined notepad sheet: blue rules every line and a red margin on the left. */
+@utility notepad {
+  background-color: var(--color-paper);
+  background-image:
+    linear-gradient(
+      90deg,
+      transparent 2.1rem,
+      var(--color-paper-margin) 2.1rem,
+      var(--color-paper-margin) calc(2.1rem + 1px),
+      transparent calc(2.1rem + 1px)
+    ),
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 calc(1.75rem - 1px),
+      var(--color-paper-rule) calc(1.75rem - 1px) 1.75rem
+    );
+  box-shadow: var(--shadow-paper);
+}

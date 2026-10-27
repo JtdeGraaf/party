@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "name": "Hartenjagen",
+    "tagline": "Dutch Hearts for 4 or 5, at a 1970s kitchen table."
+  },
+  "rules": {
+    "deck": "32 cards, 7 to ace. With 4 players everyone gets 8. With 5 everyone gets 6, and the 2 left over lie face down as the stok: whoever takes the first trick takes the stok too.",
+    "points": "Every heart is 1 point, the queen of spades 5, the jack of clubs 2: 15 a hand. Follow suit if you can; the highest card of the suit led takes the trick.",
+    "scoring": "Scores count up until someone reaches 50. From the next hand on they count down, and the first to reach 0 wins.",
+    "allPoints": "Take all 15 in one hand and you score nothing; everyone else gets the 15.",
+    "seats": "4 or 5 players."
+  },
+  "table": {
+    "others": "The other players",
+    "points_one": "{{count}} pt",
+    "points_other": "{{count}} pts",
+    "middle": "The middle of the table",
+    "tookTrick": "{{name}} takes the trick",
+    "stock": "The stok",
+    "yourHand": "Your cards",
+    "play": "Play the {{card}}",
+    "yourTurn": "Your turn",
+    "theirTurn": "{{name}} is playing",
+    "yourPoints_one": "You: {{count}} pt",
+    "yourPoints_other": "You: {{count}} pts",
+    "watching": "You're watching this game. You'll play in the next one.",
+    "handDone": "Hand {{number}} is done.",
+    "allPointsTaken": "{{name}} took every point! Everyone else gets the 15.",
+    "deal": "Deal hand {{number}}",
+    "waitingForDeal": "Waiting for {{name}} to deal.",
+    "openScore": "Look at the score",
+    "you": "You",
+    "youWin": "You win!",
+    "winner": "{{name}} wins!",
+    "sharedWin": "{{names}} win together!",
+    "lookUp": "Your cards. The table is on the big screen.",
+    "stockTaken": "{{name}} took the stok",
+    "stockTurned": "The stok was",
+    "scoreHeading": "The notepad"
+  },
+  "score": {
+    "title": "Score",
+    "countingUp": "Counting up, until someone reaches {{target}}.",
+    "countingDown": "Counting down: the first to reach 0 wins.",
+    "hand": "Hand",
+    "total": "Total",
+    "empty": "No hands played yet.",
+    "allPoints": "all!",
+    "rules": "Every heart is 1, the queen of spades 5, the jack of clubs 2. Take all 15 in one hand and everyone else gets them.",
+    "final": "The final score."
+  },
+  "cards": {
+    "name": "{{rank}} of {{suit}}",
+    "rank": {
+      "7": "seven",
+      "8": "eight",
+      "9": "nine",
+      "10": "ten",
+      "J": "jack",
+      "Q": "queen",
+      "K": "king",
+      "A": "ace"
+    },
+    "short": {
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "J": "J",
+      "Q": "Q",
+      "K": "K",
+      "A": "A"
+    },
+    "suit": {
+      "clubs": "clubs",
+      "diamonds": "diamonds",
+      "spades": "spades",
+      "hearts": "hearts"
+    }
+  },
+  "errors": {
+    "notYourTurn": "It isn't your turn.",
+    "cannotPlayThat": "You can't play that card now. Follow suit if you can.",
+    "notYourDeal": "It's someone else's deal.",
+    "handInPlay": "This hand is still being played.",
+    "gameOver": "The game is over."
+  }
+}

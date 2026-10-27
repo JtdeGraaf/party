@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "name": "Dots and boxes",
+    "tagline": "Sew a quilt together, one stitch at a time."
+  },
+  "rules": {
+    "one": "Take turns sewing one seam between two neighbouring pins.",
+    "two": "Close the fourth side of a patch and it's yours, in your print, and you sew again.",
+    "three": "When the quilt is whole, whoever holds the most patches wins.",
+    "seats": "2 to 4 players; a new game in the same room starts with the next player."
+  },
+  "settings": {
+    "size": "Size of the quilt",
+    "sizeChoice": "{{size}}×{{size}}"
+  },
+  "play": {
+    "quiltLabel": "The quilt, {{size}} by {{size}}",
+    "yourTurn": "Your turn: sew a seam",
+    "theirTurn": "{{name}} is sewing",
+    "lookUp": "Look at the big screen. It's {{name}}'s turn.",
+    "you": "You",
+    "win": "{{name}} wins with {{count}} patches",
+    "youWin": "You win with {{count}} patches",
+    "draw": "A draw between {{names}}, {{count}} patches each",
+    "lastSeam": "Last seam by {{name}}.",
+    "noSeams": "No seams yet.",
+    "patch": "{{name}} closed this patch on stitch {{stitch}}.",
+    "scores": "Patches so far",
+    "seamAcross": "Sew across, row {{row}}, from pin {{from}} to pin {{to}}",
+    "seamDown": "Sew down, column {{column}}, from pin {{from}} to pin {{to}}"
+  },
+  "errors": {
+    "notYourTurn": "It isn't your turn yet.",
+    "notALine": "That seam isn't on this quilt.",
+    "lineTaken": "That seam is already sewn.",
+    "gameOver": "The quilt is finished."
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "appName": "party",
+    "title": "Party · games for one table, on your phones"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "close": "Close",
+    "language": "Language",
+    "home": "All games"
+  },
+  "shelf": {
+    "heading": "What are we playing?",
+    "pitch": "Party games for one table. Everyone plays on their own phone; a TV or laptop can show the table.",
+    "players": "{{min}}–{{max}} players"
+  },
+  "join": {
+    "heading": "Got a room code?",
+    "codeLabel": "Room code",
+    "codePlaceholder": "KWPF",
+    "codeInvalid": "A room code is 4 letters, like KWPF.",
+    "submit": "Join",
+    "nameHeading": "Joining room",
+    "nameLabel": "Your name",
+    "nameRequired": "Put your name in, so the others know who's who.",
+    "sitDown": "Sit down"
+  },
+  "start": {
+    "phonesHeading": "Play on phones",
+    "phonesHint": "Everyone plays on their own phone. No big screen needed.",
+    "nameLabel": "Your name",
+    "nameRequired": "Put your name in, so the others know who's who.",
+    "openOnPhone": "Open a room",
+    "tableHeading": "Or show the table on this screen",
+    "tableHint": "For a TV or laptop everyone can see. Phones then show only their own cards.",
+    "openOnTable": "Use this screen as the table",
+    "opening": "Opening a room…",
+    "offline": "Couldn't reach the room server. Check the connection and try again.",
+    "refused": "The room server didn't take that. Try again.",
+    "settings": "Before you start"
+  },
+  "room": {
+    "codeLabel": "Room code {{code}}",
+    "qrLabel": "QR code that opens this room",
+    "readOut": "Read the letters out, or let them scan this.",
+    "joinAt": "Join at {{site}} with code",
+    "players": "In the room",
+    "free": "Free",
+    "away": "away",
+    "you": "you",
+    "watching": "Watching",
+    "needMore_one": "{{count}} more needed to start.",
+    "needMore_other": "{{count}} more needed to start.",
+    "seatsFor": "{{max}} can play; anyone else watches until the next game.",
+    "start": "Start",
+    "leave": "Leave the room",
+    "reconnecting": "Reconnecting…",
+    "arriving": "Getting the room…",
+    "gone": "There's no room {{code}}.",
+    "goneHint": "It may have closed after being quiet for a while. Start a new one.",
+    "invite": "Invite",
+    "inviteTitle": "Invite",
+    "endGame": "End game",
+    "endGameTitle": "End the game for everyone?",
+    "endGameText": "Everyone goes back to the room, and this game and its score are gone.",
+    "playAgain": "Play again",
+    "backToRoom": "Back to the room",
+    "watchingGame": "You're watching. You'll play in the next game.",
+    "menu": "Room",
+    "connected": "Connected"
+  },
+  "errors": {
+    "roomNotFound": "There's no room with that code.",
+    "roomFull": "This room is full.",
+    "notInRoom": "This screen isn't in the room any more. Reload to join again.",
+    "notSeated": "Only players at the table can do that.",
+    "alreadyStarted": "The game has already started.",
+    "notStarted": "The game hasn't started yet.",
+    "tooFewPlayers": "This game needs at least {{0}} players.",
+    "notOver": "The game isn't over yet.",
+    "cannotLeaveMidGame": "You can't leave in the middle of a game. End the game first.",
+    "badMessage": "The room didn't understand that. Reload the page.",
+    "badMove": "That move doesn't exist in this game.",
+    "badSettings": "Those settings don't work for this game.",
+    "nameMissing": "Put your name in first.",
+    "unknown": "Something went wrong. Try again."
+  },
+  "notFound": {
+    "title": "Nothing here",
+    "home": "Back to the games"
+  }
+}

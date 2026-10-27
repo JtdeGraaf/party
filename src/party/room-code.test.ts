@@ -7,7 +7,12 @@ describe('room codes', () => {
     const codes = Array.from({ length: 50 }, (_, seed) => newRoomCode(seededRandom(seed)))
 
     expect(codes.every((code) => /^[A-Z]{4}$/.test(code))).toBe(true)
-    expect(codes.join('').split('').every((letter) => ROOM_CODE_LETTERS.includes(letter))).toBe(true)
+    expect(
+      codes
+        .join('')
+        .split('')
+        .every((letter) => ROOM_CODE_LETTERS.includes(letter)),
+    ).toBe(true)
   })
 
   it('read the way people type them', () => {

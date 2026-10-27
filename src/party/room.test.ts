@@ -40,7 +40,11 @@ function withPlayers(names: string[]): { room: RoomState; ids: string[]; tokens:
   const ids: string[] = []
   const tokens: string[] = []
   names.forEach((name, index) => {
-    const joined = joinAsPlayer(room, { name, seatToken: null }, { ...context(2000 + index), random: seededRandom(index) })
+    const joined = joinAsPlayer(
+      room,
+      { name, seatToken: null },
+      { ...context(2000 + index), random: seededRandom(index) },
+    )
     if ('problem' in joined) throw new Error('join failed')
     room = joined.room
     ids.push(joined.player.id)
@@ -51,7 +55,9 @@ function withPlayers(names: string[]): { room: RoomState; ids: string[]; tokens:
 
 describe('opening a room', () => {
   it('refuses settings the game does not allow', () => {
-    expect(openRoom('KWPF', { target: 99 }, context())).toEqual({ problem: { from: 'room', code: 'badSettings', args: [] } })
+    expect(openRoom('KWPF', { target: 99 }, context())).toEqual({
+      problem: { from: 'room', code: 'badSettings', args: [] },
+    })
   })
 
   it('uses the game defaults when no settings are given', () => {
@@ -220,7 +226,9 @@ describe('after a game', () => {
     const players = withPlayers(['Anna', 'Bram'])
     const running = roomOf(startGame(players.room, { as: 'table' }, context()))
 
-    expect(playAgain(running, { as: 'table' }, context())).toEqual({ problem: { from: 'room', code: 'notOver', args: [] } })
+    expect(playAgain(running, { as: 'table' }, context())).toEqual({
+      problem: { from: 'room', code: 'notOver', args: [] },
+    })
     expect(roomOf(playAgain(finished().room, { as: 'table' }, context())).gameState).toMatchObject({ count: 0 })
   })
 

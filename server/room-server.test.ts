@@ -79,12 +79,18 @@ describe('creating rooms', () => {
   it('refuses a game it does not know and settings the game does not allow', async () => {
     const { host } = setUp()
 
-    expect(await createRoom(host, { game: 'chess' }, seededRandom(1))).toEqual({ status: 400, body: { problem: 'unknownGame' } })
+    expect(await createRoom(host, { game: 'chess' }, seededRandom(1))).toEqual({
+      status: 400,
+      body: { problem: 'unknownGame' },
+    })
     expect(await createRoom(host, { game: 'dotsandboxes', settings: { size: 9 } }, seededRandom(1))).toEqual({
       status: 400,
       body: { problem: 'badSettings' },
     })
-    expect(await createRoom(host, 'not json at all', seededRandom(1))).toEqual({ status: 400, body: { problem: 'badRequest' } })
+    expect(await createRoom(host, 'not json at all', seededRandom(1))).toEqual({
+      status: 400,
+      body: { problem: 'badRequest' },
+    })
   })
 
   it('only routes socket paths with a real room code', () => {
@@ -170,7 +176,9 @@ describe('hidden hands', () => {
 
     await table.send({ type: 'start' })
 
-    const hands = (host.storedRoom(code)?.gameState as { hands: { deal: { hands: string[][] } }[] }).hands[0].deal.hands
+    const stored = host.storedRoom(code)
+    if (!stored) throw new Error('the room was not stored')
+    const hands = (stored.gameState as { hands: { deal: { hands: string[][] } }[] }).hands[0].deal.hands
     phones.forEach((phone, seat) => {
       const everythingReceived = JSON.stringify(phone.received)
       const othersCards = hands.filter((_, other) => other !== seat).flat()

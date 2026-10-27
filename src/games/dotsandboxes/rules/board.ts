@@ -43,7 +43,16 @@ export function allBoxes(size: BoardSize): string[] {
 /** The one or two boxes a line is a side of. */
 export function boxesBeside(line: Line, size: BoardSize): string[] {
   const { direction, row, column } = line
-  const candidates = direction === 'h' ? [[row - 1, column], [row, column]] : [[row, column - 1], [row, column]]
+  const candidates =
+    direction === 'h'
+      ? [
+          [row - 1, column],
+          [row, column],
+        ]
+      : [
+          [row, column - 1],
+          [row, column],
+        ]
   return candidates
     .filter(([boxRow, boxColumn]) => boxRow >= 0 && boxColumn >= 0 && boxRow < size && boxColumn < size)
     .map(([boxRow, boxColumn]) => `${boxRow}-${boxColumn}`)

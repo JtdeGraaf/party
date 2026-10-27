@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "appName": "party",
+    "title": "Party · spellen voor één tafel, op je telefoon"
+  },
+  "common": {
+    "cancel": "Annuleren",
+    "close": "Sluiten",
+    "language": "Taal",
+    "home": "Alle spellen"
+  },
+  "shelf": {
+    "heading": "Wat gaan we spelen?",
+    "pitch": "Gezelschapsspellen voor één tafel. Iedereen speelt op z'n eigen telefoon; een tv of laptop kan de tafel laten zien.",
+    "players": "{{min}}–{{max}} spelers"
+  },
+  "join": {
+    "heading": "Heb je een kamercode?",
+    "codeLabel": "Kamercode",
+    "codePlaceholder": "KWPF",
+    "codeInvalid": "Een kamercode is 4 letters, zoals KWPF.",
+    "submit": "Meedoen",
+    "nameHeading": "Je gaat naar kamer",
+    "nameLabel": "Je naam",
+    "nameRequired": "Vul je naam in, dan weten de anderen wie wie is.",
+    "sitDown": "Aanschuiven"
+  },
+  "start": {
+    "phonesHeading": "Spelen op telefoons",
+    "phonesHint": "Iedereen speelt op z'n eigen telefoon. Geen groot scherm nodig.",
+    "nameLabel": "Je naam",
+    "nameRequired": "Vul je naam in, dan weten de anderen wie wie is.",
+    "openOnPhone": "Open een kamer",
+    "tableHeading": "Of laat de tafel op dit scherm zien",
+    "tableHint": "Voor een tv of laptop die iedereen kan zien. Telefoons tonen dan alleen je eigen kaarten.",
+    "openOnTable": "Gebruik dit scherm als tafel",
+    "opening": "Kamer openen…",
+    "offline": "De kamerserver is niet bereikbaar. Check de verbinding en probeer het opnieuw.",
+    "refused": "De kamerserver nam dat niet aan. Probeer het opnieuw.",
+    "settings": "Voor je begint"
+  },
+  "room": {
+    "codeLabel": "Kamercode {{code}}",
+    "qrLabel": "QR-code die deze kamer opent",
+    "readOut": "Lees de letters voor, of laat ze dit scannen.",
+    "joinAt": "Doe mee op {{site}} met code",
+    "players": "In de kamer",
+    "free": "Vrij",
+    "away": "weg",
+    "you": "jij",
+    "watching": "Kijkt mee",
+    "needMore_one": "Nog {{count}} nodig om te beginnen.",
+    "needMore_other": "Nog {{count}} nodig om te beginnen.",
+    "seatsFor": "Er kunnen {{max}} meespelen; de rest kijkt mee tot het volgende spel.",
+    "start": "Beginnen",
+    "leave": "Kamer verlaten",
+    "reconnecting": "Opnieuw verbinden…",
+    "arriving": "Kamer ophalen…",
+    "gone": "Er is geen kamer {{code}}.",
+    "goneHint": "Misschien is hij gesloten nadat het een tijd stil was. Open een nieuwe.",
+    "invite": "Uitnodigen",
+    "inviteTitle": "Uitnodigen",
+    "endGame": "Spel stoppen",
+    "endGameTitle": "Het spel stoppen voor iedereen?",
+    "endGameText": "Iedereen gaat terug naar de kamer, en dit spel en de stand zijn weg.",
+    "playAgain": "Nog een keer",
+    "backToRoom": "Terug naar de kamer",
+    "watchingGame": "Je kijkt mee. Het volgende spel doe je mee.",
+    "menu": "Kamer",
+    "connected": "Verbonden"
+  },
+  "errors": {
+    "roomNotFound": "Er is geen kamer met die code.",
+    "roomFull": "Deze kamer zit vol.",
+    "notInRoom": "Dit scherm zit niet meer in de kamer. Laad de pagina opnieuw om weer mee te doen.",
+    "notSeated": "Alleen spelers aan tafel kunnen dat.",
+    "alreadyStarted": "Het spel is al begonnen.",
+    "notStarted": "Het spel is nog niet begonnen.",
+    "tooFewPlayers": "Dit spel heeft minstens {{0}} spelers nodig.",
+    "notOver": "Het spel is nog niet afgelopen.",
+    "cannotLeaveMidGame": "Je kunt niet midden in een spel weggaan. Stop eerst het spel.",
+    "badMessage": "De kamer begreep dat niet. Laad de pagina opnieuw.",
+    "badMove": "Die zet bestaat niet in dit spel.",
+    "badSettings": "Die instellingen werken niet voor dit spel.",
+    "nameMissing": "Vul eerst je naam in.",
+    "unknown": "Er ging iets mis. Probeer het opnieuw."
+  },
+  "notFound": {
+    "title": "Hier is niks",
+    "home": "Terug naar de spellen"
+  }
+}

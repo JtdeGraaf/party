@@ -13,7 +13,10 @@ const helloSchema = z.discriminatedUnion('as', [
   z.object({
     type: z.literal('hello'),
     as: z.literal('player'),
-    name: z.string().min(1).max(MAX_NAME_LENGTH * 4),
+    name: z
+      .string()
+      .min(1)
+      .max(MAX_NAME_LENGTH * 4),
     seatToken: seatToken.nullable(),
   }),
   z.object({ type: z.literal('hello'), as: z.literal('table') }),

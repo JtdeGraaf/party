@@ -158,7 +158,9 @@ export class RoomServer {
   private presence(leaving?: Connection): Presence {
     const identities = this.openConnections(leaving).flatMap((connection) => connection.identity() ?? [])
     return {
-      connectedPlayerIds: new Set(identities.flatMap((identity) => (identity.as === 'player' ? [identity.playerId] : []))),
+      connectedPlayerIds: new Set(
+        identities.flatMap((identity) => (identity.as === 'player' ? [identity.playerId] : [])),
+      ),
       tableScreens: identities.filter((identity) => identity.as === 'table').length,
     }
   }

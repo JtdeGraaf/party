@@ -76,37 +76,41 @@ function refuse(problem: HartenjagenProblem): GameProblem {
 }
 
 /** Jt's house rules for Dutch Hearts, for 4 or 5 players: see the README for the full rules. */
-export const hartenjagenRules: GameRules<HartenjagenState, HartenjagenMove, z.infer<typeof settingsSchema>, HartenjagenView> =
-  {
-    id: 'hartenjagen',
-    players: { min: 4, max: 5 },
-    joinsMidGame: false,
-    settingsSchema,
-    defaultSettings: {},
-    moveSchema,
-    stateSchema,
-    viewSchema,
+export const hartenjagenRules: GameRules<
+  HartenjagenState,
+  HartenjagenMove,
+  z.infer<typeof settingsSchema>,
+  HartenjagenView
+> = {
+  id: 'hartenjagen',
+  players: { min: 4, max: 5 },
+  joinsMidGame: false,
+  settingsSchema,
+  defaultSettings: {},
+  moveSchema,
+  stateSchema,
+  viewSchema,
 
-    start({ seats, random }) {
-      if (!isPlayerCount(seats)) throw new RangeError(`hartenjagen seats 4 or 5, not ${seats}`)
-      return { state: { stateVersion: 1, players: seats, hands: [{ deal: dealCards(seats, random), plays: [] }] } }
-    },
+  start({ seats, random }) {
+    if (!isPlayerCount(seats)) throw new RangeError(`hartenjagen seats 4 or 5, not ${seats}`)
+    return { state: { stateVersion: 1, players: seats, hands: [{ deal: dealCards(seats, random), plays: [] }] } }
+  },
 
-    move(state, { seat, move, random }) {
-      const table = replay(state)
-      if (table.score.winners.length > 0) return refuse('gameOver')
-      if (move.type === 'deal') return dealNextHand(state, table, seat, random)
-      return playCard(state, table, seat, move.card)
-    },
+  move(state, { seat, move, random }) {
+    const table = replay(state)
+    if (table.score.winners.length > 0) return refuse('gameOver')
+    if (move.type === 'deal') return dealNextHand(state, table, seat, random)
+    return playCard(state, table, seat, move.card)
+  },
 
-    view(state, viewer) {
-      return viewOf(replay(state), viewer)
-    },
+  view(state, viewer) {
+    return viewOf(replay(state), viewer)
+  },
 
-    isOver(state) {
-      return replay(state).score.winners.length > 0
-    },
-  }
+  isOver(state) {
+    return replay(state).score.winners.length > 0
+  },
+}
 
 type Replayed = {
   players: PlayerCount
@@ -130,7 +134,12 @@ function replay(state: HartenjagenState): Replayed {
   }
 }
 
-function playCard(state: HartenjagenState, table: Replayed, seat: number, card: string): Outcome<HartenjagenState> | GameProblem {
+function playCard(
+  state: HartenjagenState,
+  table: Replayed,
+  seat: number,
+  card: string,
+): Outcome<HartenjagenState> | GameProblem {
   const { hand } = table.current
   if (hand.turn !== seat) return refuse('notYourTurn')
   if (!playableCards(hand.holding[seat], hand.currentTrick).includes(card)) return refuse('cannotPlayThat')

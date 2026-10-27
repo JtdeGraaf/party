@@ -1,0 +1,238 @@
+/* Dots and boxes as a patchwork quilt: indigo backing cloth, brass pins, cotton prints, woven labels, thread per seat. */
+@theme {
+  --color-backing: #1d2a4d;
+  --color-backing-deep: #141e3a;
+  --color-label-cloth: #f1e6d2;
+  --color-label-bright: #fffaf0;
+  --color-label-ink: #1d2a4d;
+  --color-label-ink-soft: #4a5577;
+  --color-quilt-ink: #f4ecdd;
+  --color-quilt-ink-soft: #c3c9de;
+  --color-pin: #c99d3e;
+  --color-pin-shine: #f6dc93;
+  --color-fabric-0: #cf3f34;
+  --color-fabric-1: #e0a22a;
+  --color-fabric-2: #23928a;
+  --color-fabric-3: #de6a9b;
+  --color-thread-0: #ff7c6b;
+  --color-thread-1: #ffcb4f;
+  --color-thread-2: #58d6c8;
+  --color-thread-3: #ff9fc8;
+
+  --font-quilt: 'Bricolage Grotesque Variable', 'Atkinson Hyperlegible', sans-serif;
+  --font-quilt-body: 'Atkinson Hyperlegible', system-ui, sans-serif;
+}
+
+.world-dotsandboxes {
+  --color-frame: var(--color-backing-deep);
+  --color-frame-ink: var(--color-label-cloth);
+  --color-frame-ink-soft: var(--color-quilt-ink-soft);
+  --color-frame-ground: var(--color-backing);
+  --color-frame-on-ground: var(--color-quilt-ink);
+  --color-frame-panel: var(--color-label-cloth);
+  --color-frame-text: var(--color-label-ink);
+  --color-frame-text-soft: var(--color-label-ink-soft);
+  --color-frame-cell: var(--color-label-bright);
+  --color-frame-mark: var(--color-thread-1);
+  /* A fine plain weave, so the ground reads as cloth rather than a flat colour. */
+  background-image:
+    repeating-linear-gradient(0deg, rgb(255 255 255 / 0.035) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.035) 0 1px, transparent 1px 3px);
+}
+
+@utility woven {
+  background-color: var(--color-label-cloth);
+  background-image: repeating-linear-gradient(90deg, rgb(29 42 77 / 0.1) 0 1px, transparent 1px 3px);
+  color: var(--color-label-ink);
+}
+
+/* The quilt is SVG: its parts are styled here, from the tokens above. */
+.quilt-backing-ground {
+  fill: var(--color-backing);
+}
+.quilt-backing-thread {
+  fill: rgb(255 255 255 / 0.05);
+}
+.quilt-print-0 {
+  fill: var(--color-fabric-0);
+}
+.quilt-print-1 {
+  fill: var(--color-fabric-1);
+}
+.quilt-print-2 {
+  fill: var(--color-fabric-2);
+}
+.quilt-print-3 {
+  fill: var(--color-fabric-3);
+}
+.quilt-print-wash {
+  fill: rgb(255 244 236 / 0.42);
+}
+.quilt-motif-1 {
+  fill: #fff3d1;
+}
+.quilt-motif-2 {
+  fill: #dcf3ee;
+}
+.quilt-motif-3 {
+  fill: #ffeaf3;
+}
+
+/* The binding round the quilt's edge, in the thread of whoever leads: the seat whose turn it is, or the winner. */
+.quilt-binding {
+  fill: none;
+  stroke: rgb(241 230 210 / 0.35);
+  stroke-width: 8;
+  transition: stroke 300ms var(--ease-out-ink);
+}
+.quilt-binding.binding-0 {
+  stroke: var(--color-thread-0);
+}
+.quilt-binding.binding-1 {
+  stroke: var(--color-thread-1);
+}
+.quilt-binding.binding-2 {
+  stroke: var(--color-thread-2);
+}
+.quilt-binding.binding-3 {
+  stroke: var(--color-thread-3);
+}
+.quilt-binding.is-sewn-on {
+  stroke-width: 12;
+  stroke-dasharray: 100;
+  animation: sew-binding 1600ms var(--ease-out-ink) both;
+}
+@keyframes sew-binding {
+  from {
+    stroke-dashoffset: 100;
+  }
+}
+
+.quilt-pin-shadow {
+  fill: rgb(8 12 28 / 0.55);
+}
+.quilt-pin-head {
+  fill: var(--color-pin);
+}
+.quilt-pin-shine {
+  fill: var(--color-pin-shine);
+}
+
+.quilt-basting {
+  stroke: rgb(244 236 221 / 0.22);
+  stroke-width: 2;
+  stroke-dasharray: 3 9;
+  stroke-linecap: round;
+}
+.quilt-seam {
+  cursor: pointer;
+  outline: none;
+}
+.quilt-seam-target {
+  stroke: transparent;
+  stroke-width: 34;
+}
+.quilt-seam-preview {
+  stroke: rgb(244 236 221 / 0.6);
+  stroke-width: 5;
+  stroke-dasharray: 10 7;
+  stroke-linecap: round;
+  opacity: 0;
+  transition: opacity 120ms ease-out;
+}
+.quilt-seam:hover .quilt-seam-preview,
+.quilt-seam:focus-visible .quilt-seam-preview {
+  opacity: 1;
+}
+.quilt-seam:focus-visible .quilt-seam-target {
+  stroke: rgb(255 203 79 / 0.16);
+}
+
+.quilt-stitch {
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+/* The mask a stitch is drawn through: it grows from one pin to the other, pulling the thread along. */
+.quilt-stitch-pull {
+  stroke: white;
+  stroke-width: 16;
+  stroke-dasharray: 100;
+  animation: pull-thread 420ms var(--ease-out-ink) both;
+}
+@keyframes pull-thread {
+  from {
+    stroke-dashoffset: 100;
+  }
+}
+
+/* Each seat sews its own stitch, so seams tell players apart without colour too. */
+.quilt-thread-0 {
+  stroke: var(--color-thread-0);
+  stroke-dasharray: 9 5;
+}
+.quilt-thread-1 {
+  stroke: var(--color-thread-1);
+  stroke-dasharray: 3 4;
+}
+.quilt-thread-2 {
+  stroke: var(--color-thread-2);
+  stroke-dasharray: 14 4 3 4;
+}
+.quilt-thread-3 {
+  stroke: var(--color-thread-3);
+  stroke-dasharray: 6 3 1 3;
+}
+
+.quilt-last-tag {
+  animation: pop-tag 360ms 300ms var(--ease-out-ink) both;
+  transform-box: fill-box;
+  transform-origin: center;
+  pointer-events: none;
+}
+.quilt-last-tag-ring {
+  fill: var(--color-label-cloth);
+  filter: drop-shadow(0 2px 2px rgb(8 12 28 / 0.5));
+}
+@keyframes pop-tag {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+
+.quilt-patch {
+  animation: lay-patch 520ms var(--ease-out-ink) both;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.quilt-patch-cloth {
+  filter: drop-shadow(1px 3px 2px rgb(8 12 28 / 0.45));
+}
+.quilt-patch-hem {
+  fill: none;
+  stroke: rgb(255 255 255 / 0.75);
+  stroke-width: 1.6;
+  stroke-dasharray: 5 4;
+  animation: hem 480ms 380ms var(--ease-out-ink) both;
+}
+@keyframes hem {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+@keyframes lay-patch {
+  from {
+    opacity: 0;
+    transform: scale(0.82) rotate(-4deg);
+  }
+}
+
+.quilt-swatch-stitch {
+  fill: none;
+  stroke: rgb(255 255 255 / 0.8);
+  stroke-width: 2;
+  stroke-dasharray: 4 3;
+}

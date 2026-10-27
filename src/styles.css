@@ -1,0 +1,129 @@
+@import 'tailwindcss';
+@import './games/hartenjagen/theme.css';
+@import './games/dotsandboxes/theme.css';
+
+/*
+ * The hub: bingo night in a community hall. A fluorescent lime sheet, card print in violet ink, called balls with a
+ * coloured band, and a magenta dauber for "you", "in" and "chosen".
+ */
+@theme {
+  --color-sheet: #d6ee84;
+  --color-sheet-deep: #c2df62;
+  --color-cell: #f1f9d2;
+  --color-print: #2e1a5e;
+  --color-print-soft: #4f3f86;
+  --color-dab: #e5007d;
+  --color-dab-deep: #a8005c;
+  --color-ball: #ffffff;
+  --color-ball-b: #1f5fd6;
+  --color-ball-i: #d62f2f;
+  --color-ball-n: #2e1a5e;
+  --color-ball-g: #138a4b;
+  --color-ball-o: #e8710f;
+  --color-wrong: #a3002a;
+
+  /*
+   * The frame round every screen. The hub sets these; inside a game, the game's world sets them under its
+   * `.world-<id>` class, so the bar and the lobby take on the game's colours.
+   */
+  --color-frame: var(--color-print);
+  --color-frame-ink: var(--color-sheet);
+  --color-frame-ink-soft: #c5bde4;
+  --color-frame-ground: var(--color-sheet);
+  /* Text set straight on the ground, outside any panel. */
+  --color-frame-on-ground: var(--color-print);
+  --color-frame-panel: var(--color-cell);
+  --color-frame-text: var(--color-print);
+  --color-frame-text-soft: var(--color-print-soft);
+  --color-frame-cell: var(--color-ball);
+  --color-frame-mark: var(--color-dab);
+
+  --font-display: 'League Gothic', 'Hanken Grotesk Variable', sans-serif;
+  --font-sans: 'Hanken Grotesk Variable', system-ui, sans-serif;
+
+  --radius-cell: 0.35rem;
+  --shadow-ball: inset -3px -4px 6px rgb(46 26 94 / 0.18), 0 2px 3px rgb(46 26 94 / 0.25);
+  --shadow-sheet: 0 2px 4px rgb(46 26 94 / 0.16), 0 10px 24px rgb(46 26 94 / 0.14);
+
+  --ease-out-ink: cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-dab: dab 420ms var(--ease-out-ink) both;
+  --animate-ball-roll: ball-roll 520ms var(--ease-out-ink) both;
+
+  /* The dauber presses down: the ink lands a little big and soaks back to its ring. */
+  @keyframes dab {
+    from {
+      opacity: 0;
+      scale: 1.35;
+      filter: blur(2px);
+    }
+    60% {
+      opacity: 0.95;
+    }
+  }
+
+  @keyframes ball-roll {
+    from {
+      opacity: 0;
+      translate: -1.5rem 0;
+      rotate: -120deg;
+    }
+  }
+}
+
+/* The display register: bingo-card numbers and codes, set tall and tight. */
+@utility called {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+}
+
+@utility numbers {
+  font-variant-numeric: tabular-nums;
+}
+
+/* A bingo sheet: the fluorescent paper with its faint printed grid. */
+@utility sheet-paper {
+  background-color: var(--color-frame-ground);
+  background-image:
+    repeating-linear-gradient(0deg, rgb(46 26 94 / 0.05) 0 1px, transparent 1px 2.5rem),
+    repeating-linear-gradient(90deg, rgb(46 26 94 / 0.05) 0 1px, transparent 1px 2.5rem);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    font-family: var(--font-sans);
+    color: var(--color-frame-on-ground);
+    background-color: var(--color-frame-ground);
+  }
+
+  ::selection {
+    background: var(--color-dab);
+    color: var(--color-ball);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-frame-mark);
+    outline-offset: 2px;
+  }
+
+  input {
+    caret-color: var(--color-dab);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+}

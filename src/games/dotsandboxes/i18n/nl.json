@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "name": "Kamertje verhuren",
+    "tagline": "Naai samen een quilt, steek voor steek."
+  },
+  "rules": {
+    "one": "Om de beurt naai je één naad tussen twee spelden die naast elkaar zitten.",
+    "two": "Naai je de vierde kant van een lapje dicht, dan is het van jou, in jouw stofje, en je mag nog een keer.",
+    "three": "Is de quilt af, dan wint wie de meeste lapjes heeft.",
+    "seats": "2 tot 4 spelers; een nieuw spel in dezelfde kamer begint bij de volgende speler."
+  },
+  "settings": {
+    "size": "Grootte van de quilt",
+    "sizeChoice": "{{size}}×{{size}}"
+  },
+  "play": {
+    "quiltLabel": "De quilt, {{size}} bij {{size}}",
+    "yourTurn": "Jouw beurt: naai een naad",
+    "theirTurn": "{{name}} is aan het naaien",
+    "lookUp": "Kijk naar het grote scherm. {{name}} is aan de beurt.",
+    "you": "Jij",
+    "win": "{{name}} wint met {{count}} lapjes",
+    "youWin": "Jij wint met {{count}} lapjes",
+    "draw": "Gelijkspel tussen {{names}}, {{count}} lapjes elk",
+    "lastSeam": "Laatste naad door {{name}}.",
+    "noSeams": "Nog geen naden.",
+    "patch": "{{name}} naaide dit lapje dicht bij steek {{stitch}}.",
+    "scores": "Lapjes tot nu toe",
+    "seamAcross": "Naai dwars, rij {{row}}, van speld {{from}} naar speld {{to}}",
+    "seamDown": "Naai omlaag, kolom {{column}}, van speld {{from}} naar speld {{to}}"
+  },
+  "errors": {
+    "notYourTurn": "Je bent nog niet aan de beurt.",
+    "notALine": "Die naad zit niet op deze quilt.",
+    "lineTaken": "Die naad is al genaaid.",
+    "gameOver": "De quilt is af."
+  }
+}

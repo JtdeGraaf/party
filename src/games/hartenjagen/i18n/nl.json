@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "name": "Hartenjagen",
+    "tagline": "Hartenjagen voor 4 of 5, aan een keukentafel uit de jaren 70."
+  },
+  "rules": {
+    "deck": "32 kaarten, 7 tot en met aas. Met 4 spelers krijgt iedereen er 8. Met 5 krijgt iedereen er 6, en de 2 die over zijn liggen dicht als de stok: wie de eerste slag haalt, krijgt de stok erbij.",
+    "points": "Elke harten is 1 punt, de schoppenvrouw 5, de klaverboer 2: 15 per ronde. Bekennen als je kunt; de hoogste kaart van de gevraagde kleur pakt de slag.",
+    "scoring": "De stand telt op tot iemand 50 haalt. Vanaf de ronde daarna tellen we af, en wie het eerst op 0 staat, wint.",
+    "allPoints": "Pak je alle 15 in één ronde, dan krijg jij niks en krijgt de rest de 15.",
+    "seats": "4 of 5 spelers."
+  },
+  "table": {
+    "others": "De andere spelers",
+    "points_one": "{{count}} pt",
+    "points_other": "{{count}} ptn",
+    "middle": "Het midden van de tafel",
+    "tookTrick": "{{name}} pakt de slag",
+    "stock": "De stok",
+    "yourHand": "Je kaarten",
+    "play": "Speel {{card}}",
+    "yourTurn": "Jouw beurt",
+    "theirTurn": "{{name}} is aan de beurt",
+    "yourPoints_one": "Jij: {{count}} pt",
+    "yourPoints_other": "Jij: {{count}} ptn",
+    "watching": "Je kijkt mee met dit spel. Het volgende speel je mee.",
+    "handDone": "Ronde {{number}} is klaar.",
+    "allPointsTaken": "{{name}} pakte alle punten! De rest krijgt de 15.",
+    "deal": "Deel ronde {{number}}",
+    "waitingForDeal": "Wachten tot {{name}} deelt.",
+    "openScore": "Bekijk de stand",
+    "you": "Jij",
+    "youWin": "Jij wint!",
+    "winner": "{{name}} wint!",
+    "sharedWin": "{{names}} winnen samen!",
+    "lookUp": "Je kaarten. De tafel staat op het grote scherm.",
+    "stockTaken": "{{name}} kreeg de stok",
+    "stockTurned": "In de stok zat",
+    "scoreHeading": "Het notitieblok"
+  },
+  "score": {
+    "title": "Stand",
+    "countingUp": "We tellen op, tot iemand {{target}} haalt.",
+    "countingDown": "We tellen af: wie het eerst op 0 staat, wint.",
+    "hand": "Ronde",
+    "total": "Totaal",
+    "empty": "Nog geen rondes gespeeld.",
+    "allPoints": "alles!",
+    "rules": "Elke harten is 1, de schoppenvrouw 5, de klaverboer 2. Pak je alle 15 in één ronde, dan krijgt de rest ze.",
+    "final": "De eindstand."
+  },
+  "cards": {
+    "name": "{{suit}}{{rank}}",
+    "rank": {
+      "7": "zeven",
+      "8": "acht",
+      "9": "negen",
+      "10": "tien",
+      "J": "boer",
+      "Q": "vrouw",
+      "K": "heer",
+      "A": "aas"
+    },
+    "short": {
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "J": "B",
+      "Q": "V",
+      "K": "H",
+      "A": "A"
+    },
+    "suit": {
+      "clubs": "klaver",
+      "diamonds": "ruiten",
+      "spades": "schoppen",
+      "hearts": "harten"
+    }
+  },
+  "errors": {
+    "notYourTurn": "Je bent niet aan de beurt.",
+    "cannotPlayThat": "Die kaart mag je nu niet spelen. Bekennen als je kunt.",
+    "notYourDeal": "Iemand anders moet delen.",
+    "handInPlay": "Deze ronde is nog bezig.",
+    "gameOver": "Het spel is afgelopen."
+  }
+}

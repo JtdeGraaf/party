@@ -19,10 +19,17 @@ export function describeGameRules<State, Move, Settings, View>(
   rules: GameRules<State, Move, Settings, View>,
   samples: ContractSamples<State, Move, Settings>,
 ) {
-  const seatCounts = Array.from({ length: rules.players.max - rules.players.min + 1 }, (_, index) => rules.players.min + index)
+  const seatCounts = Array.from(
+    { length: rules.players.max - rules.players.min + 1 },
+    (_, index) => rules.players.min + index,
+  )
 
   function viewersFor(seats: number): Viewer[] {
-    return [{ as: 'table' }, { as: 'watcher' }, ...Array.from({ length: seats }, (_, seat) => ({ as: 'seat' as const, seat }))]
+    return [
+      { as: 'table' },
+      { as: 'watcher' },
+      ...Array.from({ length: seats }, (_, seat) => ({ as: 'seat' as const, seat })),
+    ]
   }
 
   function checkStorableAndViewable(state: State, seats: number) {
@@ -39,7 +46,13 @@ export function describeGameRules<State, Move, Settings, View>(
     })
 
     it.each(seatCounts)('starts with %i players, storable and viewable', (seats) => {
-      const { state } = rules.start({ seats, settings: samples.settings, gameNumber: 1, random: seededRandom(seats), now: 0 })
+      const { state } = rules.start({
+        seats,
+        settings: samples.settings,
+        gameNumber: 1,
+        random: seededRandom(seats),
+        now: 0,
+      })
 
       checkStorableAndViewable(state, seats)
       expect(rules.isOver(state)).toBe(false)
